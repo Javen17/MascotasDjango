@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="animales,mascotas,adoptar">
+    <meta name="description" content="Este es un sitio web en donde puedes adoptar animales sin hogar">
+
+
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/carrusel.css">
+    <link rel="stylesheet" href="../static/css/main-container-section.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../static/files/paw.ico" type="image/x-icon" />
+
+    <title>RescuePets</title>
+</head>
+
+<body>
+
+ <!--Se crea el NavBar para la version de escritorio-->
+ <div class = "navBar" id = "mainNav">
+   <nav>
+      <ul style="margin:0;">
+       <li ><a href="#" class="active"><img src="../static/files/home icon.png"/ height:10%;></a></li>
+       <li><a href="#">Animales extraviados </a></li>
+       <li><a href="#">Propuestas de adopcion</a> </li>
+       <li><a href="#">Sociales</a></li>
+      </ul>
+   </nav>
+ </div>
+
+
+ <!--esta barra se mostrara en sustitucion de la otra en dispositivos moviles-->
+ <div class="nav-bar-responsive">
+        <button id="buttom-nav-bar">MENU</button>
+        <nav class="nav-side-responsive">
+            <ul id="list-items">
+               <li><a href="#">Home</a></li>
+               <li><a href="#">Animales extraviados</a></li>
+               <li><a href="#">Propuestas de adopcion</a></li>
+               <li><a href="#">Sociales</a></li>
+            </ul>
+        </nav>
+ </div>
+
+
+
+
+<div id="main-container" style="max-width:2000px; margin-left: auto; margin-right: auto;">
+    <div class= "contendorImagenes" style="height: 500px;">  <!--Carrusel-->
+        <div class="slides">
+         <!---- <div class="numero">1 / 3</div>-->
+          <img src="../static/files/carrusel/street.jpg" style="width:100%">
+          <div class="textoCarrusel">Esta Navidad regala un hogar.</div>
+        </div>
+
+        <div class="slides">
+         <!---- <div class="numero">2 / 3</div>-->
+          <img src="../static/files/carrusel/street3.jpeg" style="width:100%">
+          <div class="textoCarrusel" style="text-align: center; top:2.5%;">¿Lo dejarias solo?</div>
+        </div>
+
+        <div class="slides">
+          <!----<div class="numero">3 / 3</div>-->
+          <img src="../static/files/carrusel/street2.jpeg" style="width:100">
+          <div class="textoCarrusel" style="text-align: left; font-family: sans-serif; top:2.5%;">Necesitan tu ayuda</div>
+        </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>  <!--Aqui termina el carrusel-->
+
+ <!--botones del carrusel-->
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+ <!--------------------------------------------------------->
+
+
+ <!---contenedor de animales en adopcion -->
+
+    <div class="contenedor" style="height: 800px;">
+       <section class="fila">
+          <div class="jumbotron text-left header-section" style="display: flex; justify-content: space-between; align-items: center;">
+              <h1>Animales en adopcion</h1>
+          </div>
+            <section class="fila">
+
+            </section>
+            <div class="flechas-avance">
+
+            </div>
+       </section>
+
+
+
+<!---Esto va a necesitar mucha restructuracion pero quiero ver como se ve-->
+<div class="filaPerro">
+  {%for animal in animal%}
+  <div class="tarjetaPerro">
+    <p><strong>{{animal.nombre}}</strong></p><br>
+      <img src = "{{animal.foto}}" alt="Error" >
+      <button class="button-add" id="add-adopcion{{animal.nombre}}">Me interesa</button>
+  </div>
+
+
+  <div id="ticket-modal{{animal.nombre}}">
+      <dialog id="modal-adopcion">
+          <div>
+              <button style="align-self: flex-end" id="close-form{{animal.nombre}}">X</button>
+              <p>¡Gracias por adoptar!</p>
+              <p>Ve el perfil de tu nuevo amigo:</p>
+          </div>
+          <br>
+
+           <form name="add-adopcion" method="POST">{% csrf_token %}
+             <fieldset>
+                <img src = "{{animal.foto}}" alt="Error" style ="  width:33%; height:auto; border-radius: 50%; " >
+                <p><strong>Nombre: </strong>{{animal.nombre}}</p>
+                <p><strong>Edad: </strong>{{animal.edad}}</p>
+                <p><strong>Descripcion: </strong>{{animal.descripicon}}</p>
+                <input type="submit" value="Enviar solicitud">
+             </fieldset>
+           </form>
+    </dialog>
+  </div>
+
+  {%endfor%}
+
+</div>
+</div>
+
+</div>
+
+
+  <!--------------------------------------------------------->
+
+<!--    <div class="contenedor" style="height: 800px;">
+       <div class="jumbotron text-left header-section" style="display: flex; justify-content: space-between; align-items: center;">
+         <h2>Animales extraviados</h2>
+         <button class="button-add">+</button>
+       </div>
+       <section class="fila">
+
+       </section>
+       <div class="flechas-avance">
+
+       </div>
+    </div> -->
+
+
+
+
+<!--el borde inferior de la pagina-->
+    <div class="contenedor-footer">
+       <footer id="main-footer" class="text-center">
+          <p>Desarrollado por W&O web programmers</p>
+          <address id="social-media">
+            <a href="#" class="btn-reddit"></a>
+            <a href="#" class="btn-reddit"></a>
+            <a href="#" class="fa-fa-twitter"></a>
+          </address>
+       </footer>
+    </div>
+</div>
+ <!--------------------------------------------------------->
+<script src="../static/javascript/carrusel.js"></script>
+<script src="../static/javascript/sticky-bar-responsive.js"></script>
+
+{%for animal in animal%}
+<script>
+ var modal{{animal.nombre}} = document.getElementById("ticket-modal{{animal.nombre}}");
+ modal{{animal.nombre}}.style.display = "none";
+
+ document.getElementById("add-adopcion{{animal.nombre}}").addEventListener("click",()=>{
+     modal{{animal.nombre}}.style.display = "flex";
+     modal{{animal.nombre}}.style.justifyContent = "center";
+     modal{{animal.nombre}}.style.alignItems = "center";
+ });
+
+ document.getElementById("close-form{{animal.nombre}}").addEventListener("click",()=>{
+   modal{{animal.nombre}}.style.display = "none";
+ });
+</script>
+{%endfor%}
+
+</body>
+
+
+ </html>

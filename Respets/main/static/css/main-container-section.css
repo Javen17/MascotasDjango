@@ -1,0 +1,122 @@
+.header-section {
+  background-color: white !important;
+}
+.header-section h1 {
+  font-size: 2em !important;
+}
+.header-section h2 {
+  font-size: 2em !important;
+}
+
+#main-footer {
+  padding: 2rem;
+  background-color: orange;
+}
+
+.button-add {
+  border: none;
+  background-color: orange;
+  color: white;
+  display: inline-block;
+  padding: 1em;
+  border-radius: 100%;
+  box-shadow: 2px 2px 1px yellow;
+}
+
+.button-add:hover {
+  background-color: #e4e717;
+  cursor: pointer;
+}
+
+#ticket-modal {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: fixed;
+  z-index: 4;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  /*
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      */
+}
+
+
+
+#modal-adopcion {
+  width: 50%;
+  background-color: orange;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  transition: 1s;
+  margin: auto;
+
+  align-items: center; /* align vertical */
+
+}
+#modal-adopcion div {
+  display: flex;
+  flex-direction: column;
+}
+#modal-adopcion button {
+  display: inline-block;
+  margin-left: 0;
+  background-color: lightgrey;
+  border: 1px solid grey;
+  padding: 0.5em;
+}
+
+
+#modal-adopcion button:hover {
+  background-color: yellow;
+  box-shadow: 1px 1px 1px #414204;
+  cursor: pointer;
+}
+#modal-adopcion p {
+  margin: 0;
+}
+#modal-adopcion form {
+  display: flex;
+  justify-content: center;
+}
+#modal-adopcion form fieldset {
+/*  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;*/ /*sorry bro pero esto me estaba dando mas problemas de los que resolvia */
+}
+#modal-adopcion form fieldset input, #modal-adopcion form fieldset textarea {
+  width: 80%;
+  margin-left: 1em;
+  border: 1px solid grey;
+  border-radius: 1px;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+#modal-adopcion form fieldset input[type=submit] {
+  cursor: pointer;
+}
+#modal-adopcion form fieldset input[type=submit]:hover, #modal-adopcion form fieldset input[type=button]:hover {
+  background-color: yellow;
+  text-decoration: underline;
+  box-shadow: 2px 2px 2px #414204;
+}
+
+@media (max-width: 768px) {
+  #ticket-modal {
+    top: 0%;
+  }
+
+  #modal-adopcion {
+    width: 90%;
+  }
+}
+
+/*# sourceMappingURL=main-container-section.css.map */

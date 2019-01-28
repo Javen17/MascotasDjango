@@ -1,0 +1,144 @@
+
+.navBar{
+  display: none;
+}
+
+.nav-bar-responsive{
+  position: sticky;
+  top: 0;
+  background-color: orange;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  display: block;
+}
+
+.tarjetaPerro img{
+
+width: 50%;
+border-radius: 50%;
+
+}
+
+
+
+div .filaPerro{
+  display: flex;
+  flex-basis: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+div .tarjetaPerro{
+  width: 33.33%
+}
+
+
+#list-items{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+#list-items a{
+  display: inline-block;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-side-responsive{
+   position: absolute;
+   display: none;
+   background-color:orange;
+   z-index: 1;
+   width: 100%;
+}
+
+.nav-side-responsive a{
+  width: 100%;
+  transition: 0.3s;
+}
+.nav-side-responsive a:hover{
+  background-color:  rgb(150, 99, 5);
+}
+
+.nav-bar-responsive button{
+   background-color: transparent;
+   padding: 1.5rem;
+   color: white;
+   border: 0;
+   cursor: pointer;
+}
+
+.nav-bar-responsive button:hover{
+   background-color:  rgb(150, 99, 5);
+}
+
+#buttom-nav-bar:hover .nav-side-responsive{
+  display: block;
+}
+
+
+/*verifico que el dispositivo tenga un ancho de pantalla minimo a 768px*/
+@media(min-width: 768px){
+
+  .nav-bar-responsive{
+    display: none;
+  }
+
+  .navBar{
+    display: block;
+    position: sticky;
+    background-color: orange;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+  }
+
+  .navBar ul {
+    /*list-style-type: none;
+    width: 100vw;
+    display: flex;*/
+  }
+
+  .navBar li {
+   float: left;
+   /* padding: 2vw;*/
+    /*width: auto;*/
+  }
+
+
+  .navBar a {
+    text-decoration: none;
+    display: block;
+    padding: 1.5rem;
+    color: white;
+    transition: 0.3s;
+  }
+
+
+  .active{
+    background-color: rgb(240, 216, 45) !important;
+  }
+
+  .active:hover{
+    background-color:  rgb(150, 99, 5) !important;
+  }
+
+  a:hover:not(.active) {
+    background-color:  rgb(150, 99, 5);;
+    color: white;
+  }
+
+
+  #mainNav img {
+   width: auto;
+   height: 4vw;
+  }
+
+  body > div {
+     overflow: auto;
+  }
+
+}
